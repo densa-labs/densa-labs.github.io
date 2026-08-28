@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Densa Labs</title>
+
+  <style>
+    :root {
+      --navy: #16324f;
+      --text: #1f2933;
+      --muted: #5f6b76;
+      --border: #cfd6dc;
+      --bg: #ffffff;
+      --light: #f5f7f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 18px 24px;
+      border-bottom: 4px solid #0e2236;
+    }
+
+    header .inner,
+    main,
+    footer .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    header p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    main {
+      padding: 40px 24px;
+    }
+
+    .intro {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      background: var(--light);
+      padding: 18px;
+    }
+
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .project p {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #0b57a3;
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      background: #f8f9fa;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer .inner {
+      padding: 18px 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="inner">
+      <h1>Densa Labs</h1>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <h2>Welcome.</h2>
+      <p>Densa Labs is a small independent software lab.</p>
+      <p class="muted">
+        This site provides information and links to current projects.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Projects</div>
+
+      <div class="project">
+        <h3>Densa ADE</h3>
+        <p>
+          An agentic development environment for structured, long-running software work.
+        </p>
+        <a href="/densa-ade/">View project →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      Densa Labs
+    </div>
+  </footer>
+
+</body>
+</html>
