@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#0b0f14" id="theme-color-meta">
   <meta name="color-scheme" content="light dark">
 
-  <link rel="icon" type="image/png" href="assets/Densa-Letter-Logo.png">
+  <link rel="icon" type="image/png" href="/assets/Densa-Letter-Logo.png">
 
   <script>
     (() => {
@@ -24,583 +24,22 @@
     })();
   </script>
 
-  <style>
-    :root,
-    :root[data-theme="dark"] {
-      color-scheme: dark;
-      --background: #0b0f14;
-      --surface-hover: #121820;
-      --text: #f5f7f8;
-      --muted: #9199a3;
-      --muted-strong: #b7bec6;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-hover: rgba(255, 255, 255, 0.2);
-      --toggle-hover: rgba(255, 255, 255, 0.055);
-    }
-
-    :root[data-theme="light"] {
-      color-scheme: light;
-      --background: #ffffff;
-      --surface-hover: #f5f6f7;
-      --text: #111418;
-      --muted: #69717a;
-      --muted-strong: #4e5660;
-      --border: rgba(12, 18, 24, 0.1);
-      --border-hover: rgba(12, 18, 24, 0.2);
-      --toggle-hover: rgba(12, 18, 24, 0.055);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: var(--background);
-      color: var(--text);
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      transition:
-        background-color 280ms ease,
-        color 280ms ease;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    /* Header */
-
-    header {
-      border-bottom: 1px solid var(--border);
-      transition: border-color 280ms ease;
-    }
-
-    .header-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .brand {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-      width: 148px;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 148px;
-      height: auto;
-      transition:
-        opacity 220ms ease,
-        transform 280ms ease;
-    }
-
-    .brand-logo-light {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: translateY(2px);
-    }
-
-    :root[data-theme="light"] .brand-logo-dark {
-      opacity: 0;
-      transform: translateY(-2px);
-    }
-
-    :root[data-theme="light"] .brand-logo-light {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .theme-toggle {
-      position: relative;
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--muted-strong);
-      cursor: pointer;
-      touch-action: manipulation;
-      overflow: hidden;
-      transition:
-        background-color 180ms ease,
-        color 180ms ease,
-        border-color 180ms ease,
-        transform 180ms ease;
-    }
-
-    .theme-toggle:hover {
-      background: var(--toggle-hover);
-      color: var(--text);
-      border-color: var(--border-hover);
-    }
-
-    .theme-toggle:active {
-      transform: scale(0.95);
-    }
-
-    .theme-toggle svg {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition:
-        opacity 220ms ease,
-        transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .theme-toggle .sun {
-      opacity: 0;
-      transform: rotate(-55deg) scale(0.65);
-    }
-
-    .theme-toggle .moon {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-
-    :root[data-theme="light"] .theme-toggle .sun {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-
-    :root[data-theme="light"] .theme-toggle .moon {
-      opacity: 0;
-      transform: rotate(55deg) scale(0.65);
-    }
-
-    /* Main */
-
-    main {
-      flex: 1;
-    }
-
-    .projects {
-      padding: 84px 0 116px;
-    }
-
-    .projects-header {
-      margin-bottom: 32px;
-    }
-
-    .projects-header h1 {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1.2;
-      font-weight: 560;
-      letter-spacing: -0.02em;
-    }
-
-    .project {
-      position: relative;
-      min-height: 390px;
-      padding: 48px 48px 52px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: transparent;
-      overflow: hidden;
-      transition:
-        background-color 280ms ease,
-        border-color 160ms ease,
-        color 280ms ease;
-    }
-
-    .project:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover);
-    }
-
-    .themed-project-logo {
-      position: relative;
-      width: min(430px, 100%);
-      margin-bottom: 58px;
-    }
-
-    .themed-project-logo img {
-      width: 100%;
-      height: auto;
-      transition:
-        opacity 220ms ease,
-        transform 280ms ease;
-    }
-
-    .themed-project-logo .logo-light {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: translateY(2px);
-    }
-
-    :root[data-theme="light"] .themed-project-logo .logo-dark {
-      opacity: 0;
-      transform: translateY(-2px);
-    }
-
-    :root[data-theme="light"] .themed-project-logo .logo-light {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-content {
-      max-width: 680px;
-      padding-right: 120px;
-    }
-
-    .project-content h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.25;
-      font-weight: 550;
-      letter-spacing: -0.015em;
-    }
-
-    .project-title-link {
-      text-decoration: none;
-    }
-
-    .project-title-link::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    .project-content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-      transition: color 280ms ease;
-    }
-
-    .project-link {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      touch-action: manipulation;
-      gap: 8px;
-      margin-top: 28px;
-      font-size: 14px;
-      font-weight: 550;
-      text-decoration: none;
-    }
-
-    .project-link .arrow {
-      display: inline-block;
-      transition: transform 160ms ease;
-    }
-
-    .project:hover .project-link .arrow {
-      transform: translateX(3px);
-    }
-
-    .project-url {
-      position: absolute;
-      right: 48px;
-      bottom: 48px;
-      z-index: 2;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      text-decoration-line: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      touch-action: manipulation;
-      transition: color 160ms ease;
-    }
-
-    .project-url:hover {
-      color: var(--text);
-    }
-
-    /* Footer */
-
-    footer {
-      border-top: 1px solid var(--border);
-      transition: border-color 280ms ease;
-    }
-
-    .footer-inner {
-      min-height: 112px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .footer-copy {
-      display: grid;
-      gap: 5px;
-    }
-
-    .footer-brand {
-      margin: 0;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .footer-description {
-      margin: 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-      transition: color 280ms ease;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .footer-link {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 8px 0;
-      touch-action: manipulation;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 160ms ease;
-    }
-
-    .footer-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 100%;
-      bottom: 5px;
-      height: 1px;
-      background: var(--text);
-      transition:
-        right 160ms ease,
-        background-color 280ms ease;
-    }
-
-    .footer-link:hover {
-      color: var(--text);
-    }
-
-    .footer-link:hover::after {
-      right: 0;
-    }
-
-    /* Accessibility */
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--text);
-      outline-offset: 4px;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 700px) {
-      .container {
-        width: min(100% - 36px, 1120px);
-      }
-
-      .header-inner {
-        min-height: 64px;
-      }
-
-      .brand {
-        width: 128px;
-      }
-
-      .brand img {
-        width: 128px;
-      }
-
-      .theme-toggle {
-        width: 40px;
-        height: 40px;
-      }
-
-      .projects {
-        padding: 56px 0 76px;
-      }
-
-      .projects-header {
-        margin-bottom: 24px;
-      }
-
-      .projects-header h1 {
-        font-size: 22px;
-      }
-
-      .project {
-        min-height: 0;
-        padding: 30px;
-      }
-
-      .themed-project-logo {
-        width: min(320px, 100%);
-        margin-bottom: 38px;
-      }
-
-      .project-content {
-        max-width: none;
-        padding-right: 0;
-      }
-
-      .project-content h2 {
-        font-size: 21px;
-      }
-
-      .project-content p {
-        font-size: 15px;
-        line-height: 1.6;
-      }
-
-      .project-link {
-        margin-top: 22px;
-      }
-
-      .project-url {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px;
-        margin-top: 18px;
-        font-size: 13px;
-        overflow-wrap: anywhere;
-      }
-
-      .footer-inner {
-        min-height: 0;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 18px;
-        padding: 28px 0;
-      }
-
-      .footer-copy {
-        max-width: 520px;
-      }
-
-      .footer-description {
-        font-size: 12px;
-        line-height: 1.6;
-      }
-
-      .footer-links {
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 440px) {
-      .container {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .projects {
-        padding: 48px 0 64px;
-      }
-
-      .project {
-        padding: 24px;
-        border-radius: 9px;
-      }
-
-      .themed-project-logo {
-        margin-bottom: 32px;
-      }
-
-      .project-content h2 {
-        font-size: 20px;
-      }
-
-      .footer-description {
-        max-width: 34ch;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/styles-main.css">
 </head>
 
 <body>
 
-  <header>
+  <header id="site-header">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Densa Labs home">
         <img
           class="brand-logo-dark"
-          src="assets/Densa-Logo-White.png"
+          src="/assets/Densa-Logo-White.png"
           alt="Densa"
         >
         <img
           class="brand-logo-light"
-          src="assets/Densa-Logo-Dark.png"
+          src="/assets/Densa-Logo.png"
           alt=""
           aria-hidden="true"
         >
@@ -637,19 +76,20 @@
   <main>
     <section class="projects container">
       <div class="projects-header">
-        <h1>Projects</h1>
+        <h1>Active Projects</h1>
+        <a class="view-all-projects" href="/projects/">View all projects →</a>
       </div>
 
       <article class="project">
         <div class="themed-project-logo" aria-label="Benchmark Registry">
           <img
             class="logo-dark"
-            src="assets/Benchmark-Registry-Logo-Full-White.png"
+            src="/assets/Benchmark-Registry-Logo-Full-White.png"
             alt="Benchmark Registry"
           >
           <img
             class="logo-light"
-            src="assets/Benchmark-Registry-Logo-Full-Dark.png"
+            src="/assets/Benchmark-Registry-Logo-Full-Dark.png"
             alt=""
             aria-hidden="true"
           >
@@ -698,44 +138,16 @@
         <p class="footer-description">An independent software lab building useful software, developer tools, and experimental projects.</p>
       </div>
 
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a
-          class="footer-link"
-          href="https://github.com/densa-labs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >GitHub</a>
-      </nav>
+      <a
+        class="footer-link"
+        href="https://github.com/densa-labs"
+        target="_blank"
+        rel="noopener noreferrer"
+      >GitHub</a>
     </div>
   </footer>
 
-  <script>
-    const root = document.documentElement;
-    const themeToggle = document.getElementById("theme-toggle");
-    const themeColorMeta = document.getElementById("theme-color-meta");
-
-    const applyTheme = (theme) => {
-      root.dataset.theme = theme;
-      localStorage.setItem("theme", theme);
-
-      const isLight = theme === "light";
-      themeToggle.setAttribute(
-        "aria-label",
-        isLight ? "Switch to dark mode" : "Switch to light mode"
-      );
-
-      themeColorMeta.setAttribute(
-        "content",
-        isLight ? "#ffffff" : "#0b0f14"
-      );
-    };
-
-    applyTheme(root.dataset.theme || "dark");
-
-    themeToggle.addEventListener("click", () => {
-      applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
-    });
-  </script>
+  <script src="/scripts/js-main.js" defer></script>
 
 </body>
 </html>
