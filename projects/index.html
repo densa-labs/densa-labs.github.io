@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Projects · Densa Labs</title>
+  <meta
+    name="description"
+    content="Projects from Densa Labs, an independent software lab building useful software, developer tools, and experimental projects."
+  >
+
+  <meta name="theme-color" content="#0b0f14" id="theme-color-meta">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="icon" type="image/png" href="/assets/Densa-Letter-Logo.png">
+
+  <script>
+    (() => {
+      const storedTheme = localStorage.getItem("theme");
+      const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+      const initialTheme = storedTheme || (systemPrefersLight ? "light" : "dark");
+      document.documentElement.dataset.theme = initialTheme;
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/css/styles-projects.css">
+</head>
+
+<body>
+
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Densa Labs home">
+        <img
+          class="brand-logo-dark"
+          src="/assets/Densa-Logo-White.png"
+          alt="Densa"
+        >
+        <img
+          class="brand-logo-light"
+          src="/assets/Densa-Logo.png"
+          alt=""
+          aria-hidden="true"
+        >
+      </a>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        title="Switch theme"
+      >
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.42 1.42"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="projects-page container">
+      <div class="page-heading">
+        <h1>Projects</h1>
+
+        <div class="filters">
+          <button
+            class="filter-toggle"
+            id="filter-toggle"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="filter-menu"
+          >
+            <svg class="filter-icon" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M2 4h14"></path>
+              <path d="M4 9h10"></path>
+              <path d="M6 14h6"></path>
+            </svg>
+            <span class="filter-toggle-label">Filters</span>
+            <svg class="filter-chevron" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="m4 6 4 4 4-4"></path>
+            </svg>
+          </button>
+
+          <div class="filter-menu" id="filter-menu" role="menu" aria-label="Project filters">
+            <button class="filter-option" type="button" role="menuitemradio" aria-checked="true" data-sort="earliest">
+              <span>Earliest first</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+            <button class="filter-option" type="button" role="menuitemradio" aria-checked="false" data-sort="latest">
+              <span>Latest first</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+            <button class="filter-option" type="button" role="menuitemradio" aria-checked="false" data-sort="alphabetical">
+              <span>Alphabetical</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+
+            <div class="filter-divider" role="separator"></div>
+
+            <button class="filter-option" type="button" role="menuitemcheckbox" aria-checked="true" data-status="in-development">
+              <span>In development</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+            <button class="filter-option" type="button" role="menuitemcheckbox" aria-checked="true" data-status="paused">
+              <span>Paused</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+            <button class="filter-option" type="button" role="menuitemcheckbox" aria-checked="true" data-status="abandoned">
+              <span>Abandoned</span><span class="check" aria-hidden="true">✓</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-table-wrap">
+        <table class="project-table" aria-label="Densa Labs projects">
+          <colgroup>
+            <col><col><col><col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Status</th>
+              <th scope="col">Repository</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody id="project-table-body">
+            <tr class="project-row" data-order="1" data-name="app-densa-ade" data-status="paused">
+              <td data-label="Project">
+                <a class="project-name" href="https://github.com/densa-labs/app-densa-ade" target="_blank" rel="noopener noreferrer">app-densa-ade</a>
+              </td>
+              <td data-label="Status"><span class="status status-paused">Paused</span></td>
+              <td data-label="Repository">
+                <a class="repo-link" href="https://github.com/densa-labs/app-densa-ade" target="_blank" rel="noopener noreferrer">densa-labs/app-densa-ade</a>
+              </td>
+              <td data-label="Description"><p class="description">Agentic development environment for planning, executing, and validating AI-assisted software projects.</p></td>
+            </tr>
+
+            <tr class="project-row" data-order="2" data-name="ets2-adaptive-eta" data-status="abandoned">
+              <td data-label="Project">
+                <a class="project-name" href="https://github.com/densa-labs/research-ets2-adaptive-eta" target="_blank" rel="noopener noreferrer">ets2-adaptive-eta</a>
+              </td>
+              <td data-label="Status"><span class="status status-abandoned">Abandoned</span></td>
+              <td data-label="Repository">
+                <a class="repo-link" href="https://github.com/densa-labs/research-ets2-adaptive-eta" target="_blank" rel="noopener noreferrer">densa-labs/research-ets2-adaptive-eta</a>
+              </td>
+              <td data-label="Description"><p class="description">This repository was an older, complex version of Better ETA. It now serves as a research repository for development purposes.</p></td>
+            </tr>
+
+            <tr class="project-row" data-order="3" data-name="ets2-better-eta" data-status="paused">
+              <td data-label="Project">
+                <a class="project-name" href="https://github.com/densa-labs/ets2-better-eta" target="_blank" rel="noopener noreferrer">ets2-better-eta</a>
+              </td>
+              <td data-label="Status"><span class="status status-paused">Paused</span></td>
+              <td data-label="Repository">
+                <a class="repo-link" href="https://github.com/densa-labs/ets2-better-eta" target="_blank" rel="noopener noreferrer">densa-labs/ets2-better-eta</a>
+              </td>
+              <td data-label="Description"><p class="description">Better ETA is an unreleased mod for Euro Truck Simulator 2 that improves the Route Advisor's ETA by tuning the assumptions the game uses to calculate travel time.</p></td>
+            </tr>
+
+            <tr class="project-row" data-order="4" data-name="benchmark-registry" data-status="in-development">
+              <td data-label="Project">
+                <a class="project-name" href="https://github.com/densa-labs/benchmark-registry" target="_blank" rel="noopener noreferrer">benchmark-registry</a>
+              </td>
+              <td data-label="Status"><span class="status status-development">In development</span></td>
+              <td data-label="Repository">
+                <a class="repo-link" href="https://github.com/densa-labs/benchmark-registry" target="_blank" rel="noopener noreferrer">densa-labs/benchmark-registry</a>
+              </td>
+              <td data-label="Description"><p class="description">Benchmark Registry is an ever-updating registry of AI models and their benchmark results</p></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="empty-state" id="empty-state" hidden>No projects match the selected filters.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <p class="footer-brand">Densa Labs</p>
+        <p class="footer-description">An independent software lab building useful software, developer tools, and experimental projects.</p>
+      </div>
+
+      <a
+        class="footer-link"
+        href="https://github.com/densa-labs"
+        target="_blank"
+        rel="noopener noreferrer"
+      >GitHub</a>
+    </div>
+  </footer>
+
+  <script src="/scripts/js-projects.js" defer></script>
+
+</body>
+</html>
