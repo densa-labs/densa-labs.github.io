@@ -460,6 +460,14 @@ main {
   color: var(--abandoned);
 }
 
+.status-archived {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: normal;
+}
+
 .repo-link {
   color: var(--muted-strong);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;

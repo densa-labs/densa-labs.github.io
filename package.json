@@ -1,0 +1,14 @@
+{
+  "name": "densa-labs-website",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/project-data.mjs",
+    "build:offline": "node scripts/project-data.mjs --offline",
+    "test": "node --test tests/*.test.mjs",
+    "check:syntax": "node --check scripts/project-data.mjs && node --check scripts/js-main.js && node --check scripts/js-projects.js"
+  }
+}

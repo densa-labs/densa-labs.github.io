@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+  schedule:
+    - cron: "17 */6 * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -27,6 +30,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Test project discovery
+        run: npm test
+
+      - name: Build project data
+        run: npm run build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
